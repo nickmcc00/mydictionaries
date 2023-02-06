@@ -34,3 +34,21 @@ Latitude: 14.7628
 
 
 import json
+
+infile = open("eq_data.json", "r")
+eq_data = json.load(infile)
+
+earthquake_found = {"earthquake"}
+
+# 1
+eq_num = eq_data["metadata"]["count"]
+print(eq_num)
+print()
+
+# 2
+location = eq_data["features"]["properties"]
+print(location)
+
+# for key in eq_data:
+# if key["features"]["properties"]["mag"] > 6:
+# print(f"Location: {key['features'['properties'['place']]]}")

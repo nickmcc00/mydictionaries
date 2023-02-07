@@ -41,16 +41,31 @@ eq_data = json.load(infile)
 
 # 1
 eq_num = eq_data["metadata"]["count"]
-print(eq_num)
+print("\nNumber of Earthquakes:", eq_num)
+print()
 print()
 
-eq_dict = {}
 # 2
-# location = eq_data["features"]["properties"]["place"]
-# print(location)
+eq_dict = {}
 
-# for key in eq_data:
-# location = key["properties"]["place"]
-# magnitude = key["properties"]["mag"]
-# if key["properties"]["mag"] > 6:
-# print("yes")
+for key in eq_data["features"]:
+    if key["properties"]["mag"] > 6:
+        eq_dict[key["properties"]["place"]] = {
+            "Location": key["properties"]["place"],
+            "Magnitude": key["properties"]["mag"],
+            "Longitude": key["geometry"]["coordinates"][0],
+            "Latitude": key["geometry"]["coordinates"][1],
+        }
+
+print(eq_dict)
+print()
+print()
+
+# 3
+for location, values in eq_dict.items():
+    print("Location:", location)
+    print("Magnitude:", values["Magnitude"])
+    print("Longitude:", values["Longitude"])
+    print("Latitude:", values["Latitude"])
+    print()
+    print()

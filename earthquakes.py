@@ -38,17 +38,19 @@ import json
 infile = open("eq_data.json", "r")
 eq_data = json.load(infile)
 
-earthquake_found = {"earthquake"}
 
 # 1
 eq_num = eq_data["metadata"]["count"]
 print(eq_num)
 print()
 
+eq_dict = {}
 # 2
-location = eq_data["features"]["properties"]
-print(location)
+# location = eq_data["features"]["properties"]["place"]
+# print(location)
 
 # for key in eq_data:
-# if key["features"]["properties"]["mag"] > 6:
-# print(f"Location: {key['features'['properties'['place']]]}")
+# location = key["properties"]["place"]
+# magnitude = key["properties"]["mag"]
+# if key["properties"]["mag"] > 6:
+# print("yes")
